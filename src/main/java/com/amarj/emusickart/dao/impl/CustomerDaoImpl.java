@@ -23,7 +23,7 @@ public class CustomerDaoImpl implements CustomerDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	@Override
+	
 	public void addCustomer(Customer customer) {
 		Session session = sessionFactory.getCurrentSession();
 
@@ -58,14 +58,14 @@ public class CustomerDaoImpl implements CustomerDao {
 		
 	}
 
-	@Override
+	
 	public Customer getCustomerById(int customerId) {
 	
 		Session session = sessionFactory.getCurrentSession();
         return (Customer) session.get(Customer.class, customerId);
 	}
 
-	@Override
+	
 	public List<Customer> getAllCustomers() {
 		Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("from Customer");
@@ -75,7 +75,7 @@ public class CustomerDaoImpl implements CustomerDao {
         return customerList;
 	}
 
-	@Override
+	
 	public Customer getCustomerByUsername(String username) {
 		
 		Session session = sessionFactory.getCurrentSession();
