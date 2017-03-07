@@ -19,7 +19,7 @@ public class ProductDaoImpl implements ProductDao{
 	 @Autowired
 	    private SessionFactory sessionFactory; 
 	
-
+    @Transactional
 	public List<Product> getProductList() {
 		
 		Session session = sessionFactory.getCurrentSession();

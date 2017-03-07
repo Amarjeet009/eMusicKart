@@ -15,23 +15,22 @@ public class CustomerServiceImpl implements CustomerService {
 	@Autowired
     private CustomerDao customerDao;
 	
-	@Override
+	
 	public void addCustomer(Customer customer) {
 		customerDao.addCustomer(customer);
 		
 	}
 
-	@Override
 	public Customer getCustomerById(int customerId) {
 		 return customerDao.getCustomerById(customerId);
 	}
 
-	@Override
+	
 	public List<Customer> getAllCustomers() {
 		return customerDao.getAllCustomers();
 	}
 
-	@Override
+
 	public Customer getCustomerByUsername(String username) {
 		 return customerDao.getCustomerByUsername(username);
 	}

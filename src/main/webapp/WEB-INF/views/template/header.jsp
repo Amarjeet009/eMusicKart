@@ -76,6 +76,7 @@
                         <c:if test="${pageContext.request.userPrincipal.name == null}">
                             <li><a href="<c:url value="/register" />"><span class="glyphicon glyphicon-log-in"></span>SignUp</a></li>
                             <li><a href="<c:url value="/login" />"><span class="glyphicon glyphicon-user"></span>SignIn</a></li>
+                              <li><a href="<c:url value="/cart" />"><span class="glyphicon glyphicon-shopping-cart"></span>CartItem</a></li>
                             
                         </c:if>
                     </ul>

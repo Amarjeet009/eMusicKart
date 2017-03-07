@@ -23,13 +23,13 @@ public class CartDaoImpl implements CartDao{
     @Autowired
     private CustomerOrderService customerOrderService;
 
-	@Override
+	@Transactional
 	public Cart getCartById(int cartId) {
 		Session session = sessionFactory.getCurrentSession();
         return (Cart) session.get(Cart.class, cartId);
 	}
 
-	@Override
+	@Transactional
 	public Cart validate(int cartId) throws IOException {
 		 Cart cart = getCartById(cartId);
 	        if(cart == null || cart.getCartItems().size() == 0){
@@ -40,7 +40,7 @@ public class CartDaoImpl implements CartDao{
 	        return cart;
 	}
 
-	@Override
+	@Transactional
 	public void update(Cart cart) {
 		 int cartId = cart.getCartId();
 	        double grandTotal = customerOrderService.getCustomerOrderGrandTotal(cartId);

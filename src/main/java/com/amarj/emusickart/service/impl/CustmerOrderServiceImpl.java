@@ -21,13 +21,13 @@ public class CustmerOrderServiceImpl implements CustomerOrderService {
     @Autowired
     private CartService cartService;
 	
-	@Override
+
 	public void addCustomerOrder(CustomerOrder customerOrder) {
 		customerOrderDao.addCustomerOrder(customerOrder);
 		
 	}
 
-	@Override
+	
 	public double getCustomerOrderGrandTotal(int cartId) {
 		double grandTotal = 0;
         Cart cart = cartService.getCartById(cartId);

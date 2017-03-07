@@ -23,7 +23,7 @@ public class CustomerDaoImpl implements CustomerDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	
+	@Transactional
 	public void addCustomer(Customer customer) {
 		Session session = sessionFactory.getCurrentSession();
 
@@ -58,18 +58,18 @@ public class CustomerDaoImpl implements CustomerDao {
 		
 	}
 
-	
+	@Transactional
 	public Customer getCustomerById(int customerId) {
 	
 		Session session = sessionFactory.getCurrentSession();
         return (Customer) session.get(Customer.class, customerId);
 	}
 
-	
+    @SuppressWarnings("unchecked")
+	@Transactional	
 	public List<Customer> getAllCustomers() {
 		Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("from Customer");
-        @SuppressWarnings("unchecked")
 		List<Customer> customerList = query.list();
 
         return customerList;

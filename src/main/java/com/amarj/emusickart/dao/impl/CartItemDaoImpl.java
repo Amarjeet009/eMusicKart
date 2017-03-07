@@ -20,7 +20,7 @@ public class CartItemDaoImpl  implements CartItemDao{
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	@Override
+	@Transactional
 	public void addCartItem(CartItem cartItem) {
 		
 		Session session = sessionFactory.getCurrentSession();
@@ -29,7 +29,7 @@ public class CartItemDaoImpl  implements CartItemDao{
 		
 	}
 
-	@Override
+	@Transactional
 	public void removeCartItem(CartItem cartItem) {
 		Session session = sessionFactory.getCurrentSession();
         session.delete(cartItem);
@@ -37,7 +37,7 @@ public class CartItemDaoImpl  implements CartItemDao{
     
 	}
 
-	@Override
+	@Transactional
 	public void removeAllCartItems(Cart cart) {
 		List<CartItem> cartItems = cart.getCartItems();
 
@@ -47,7 +47,7 @@ public class CartItemDaoImpl  implements CartItemDao{
 		
 	}
 
-	@Override
+	@Transactional
 	public CartItem getCartItemByProductId(int productId) {
 		Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("from CartItem where productId = ?");

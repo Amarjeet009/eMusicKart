@@ -29,5 +29,6 @@
         </h3>
 
         <p>Here you can view the customer information!</p>
-
+    </div>
+</div>
 <%@ include file="/WEB-INF/views/template/footer.jsp" %>
